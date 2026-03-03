@@ -57,5 +57,5 @@ if (isNaN(totalPagesToDownload) || totalPagesToDownload <= 0) {
     }
 
     // Set up the loop (adjust 3000ms if your internet is slow and pages load blank)
-    const scraperInterval = setInterval(scrapeCanvasToImage, 500);
+    const scraperInterval = setInterval(scrapeCanvasToImage, 750);
 }
