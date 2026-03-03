@@ -1,7 +1,7 @@
 let totalPagesToDownload = prompt("Enter the total number of pages you want to download:");
 
 // Convert the input into a usable number
-totalPagesToDownload = parseInt(totalPagesToDownload, 1090);
+totalPagesToDownload = parseInt(totalPagesToDownload, 10);
 
 if (isNaN(totalPagesToDownload) || totalPagesToDownload <= 0) {
     console.error("Invalid page count entered. Please run the script again and enter a valid number.");
