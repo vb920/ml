@@ -1,913 +1,447 @@
-Got it — then the target is broader:
+For your goal (Senior AI / LLM Systems Engineer) and your learning style (theory-deep, invariant-driven, book-oriented), I would drastically reduce resource sprawl.
 
-> **ML Engineer + AI Engineer**  
-> Someone who can build classical ML systems, deep learning pipelines, LLM/RAG/agent apps, and production ML infrastructure.
+Most people fail because they follow 30 resources simultaneously.
 
-So the roadmap should **not** be “LLM app developer only,” and also **not** “ML researcher.”  
-It should be an **industry ML engineering roadmap**.
+I would follow only 8 primary resources.
 
-The right north star is:
+Phase 1: Math Foundations (2 Months)
+Linear Algebra
+Primary Resource
 
-> **Can I take messy data + business problem → design features/model/RAG/LLM workflow → train/evaluate/deploy/monitor it reliably?**
+Gilbert Strang – Introduction to Linear Algebra
 
-***
+Study:
 
-# Revised North Star: Top ML/AI Engineer
+Chapters 1–7
+Chapters 9–10
 
-You need strength in **7 layers**:
+Skip:
 
-1. **Software engineering foundation**
-2. **Data engineering and analytics**
-3. **Classical ML and statistical learning**
-4. **Deep learning fundamentals**
-5. **LLMs, RAG, and agents**
-6. **ML system design and MLOps**
-7. **Evaluation, monitoring, experimentation**
+Most proof-heavy sections
+Advanced applications unrelated to ML
 
-This is much more balanced.
+Time:
 
-***
+6 weeks
 
-# What Changes From the Previous AI-Only Plan?
+Goal:
 
-## Add more focus on
+Be comfortable with:
 
-* classical ML
-* feature engineering
-* tabular data
-* model evaluation
-* data pipelines
-* ML system design
-* monitoring and drift
-* batch/real-time inference
-* experiments
-* model lifecycle
+vector spaces
+projections
+least squares
+eigenvalues
+SVD
+Probability
+Primary Resource
 
-## Keep focus on
+Harvard Stat 110 (Joe Blitzstein)
 
-* LLM APIs
-* RAG
-* tool calling
-* agents
-* prompt/eval systems
-* vector databases
+Use:
 
-## Still avoid going too deep into
+Lectures
+Notes
 
-* transformer research
-* RLHF research
-* training LLMs from scratch
-* dozens of papers
-* advanced optimization theory
-* distributed training internals too early
+Do NOT solve every problem.
 
-***
+Time:
 
-# Better Roadmap: ML Engineer + AI Engineer
+3 weeks
 
-## Phase 0 — Engineering Base
+Goal:
 
-### Goal
+Understand:
 
-Become strong enough to build reliable ML-backed services.
+random variables
+expectation
+variance
+conditional probability
+Bayes
+likelihood
+Optimization
+Resource
 
-### Learn
+Convex Optimization (Boyd) Summary Notes
 
-* Python
-* SQL
-* Git
-* Linux basics
-* Docker
-* FastAPI
-* REST APIs
-* background jobs
-* logging
-* testing
-* Postgres
-* Redis
-* basic cloud deployment
+Do not read the whole book.
 
-Since you are already a software engineer and prefer Java generally, you do **not** need to abandon Java. But for ML/AI work, Python is mandatory.
+Read:
 
-### Resources
+Convex sets
+Gradient descent
+Constrained optimization
+Lagrange multipliers
 
-* FastAPI docs
-* Pydantic docs
-* Effective Python
-* Designing Data-Intensive Applications, selected chapters
-* SQLBolt / Mode SQL tutorial
-* Docker docs
+Time:
 
-### Build
+1 week
 
-Build a backend service:
+This is enough for LLM engineering.
 
-* FastAPI API
-* Postgres database
-* Redis cache
-* background worker
-* Docker setup
-* structured logs
-* unit tests
-* health endpoint
+Phase 2: Core Machine Learning (2 Months)
+Primary Resource
+Stanford CS229
 
-This becomes the base for later ML deployment.
+Website:
 
-***
+https://cs229.stanford.edu
 
-# Phase 1 — Data Analysis and Feature Engineering
+Use:
 
-### Goal
+Lecture notes
+Lectures
 
-Learn to understand data before modeling.
+Ignore:
 
-This is a huge difference between a demo AI developer and a real ML engineer.
+Assignments
+Most mathematical proofs
 
-### Learn
+Time:
 
-* pandas
-* NumPy
-* data cleaning
-* missing values
-* outliers
-* joins
-* aggregations
-* leakage detection
-* exploratory data analysis
-* train/validation/test split
-* feature engineering
-* target leakage
-* data quality checks
+8 weeks
 
-### Resources
-
-* Python for Data Analysis — Wes McKinney
-* Practical Statistics for Data Scientists
-* Designing Machine Learning Systems — Chip Huyen
-* Hands-On Machine Learning — selected chapters
-
-### Build
-
-Build an **EDA + feature engineering project**.
+Focus on understanding.
 
-Example options:
+By the end you should understand:
 
-1. customer churn prediction
-2. house price prediction
-3. fraud detection
-4. loan default prediction
-5. weather temperature prediction — this aligns with your Tmax forecasting work
+regression
+classification
+bias/variance
+PCA
+clustering
+EM
+regularization
+Phase 3: Deep Learning Bridge (1 Month)
 
-Deliverables:
+You do NOT need Andrew Ng's Deep Learning Specialization.
 
-* notebook
-* cleaned dataset
-* feature pipeline
-* leakage analysis
-* baseline model
-* error analysis
+Resource 1
+Dive Into Deep Learning (D2L)
 
-### Key skill
-
-Before training any model, you should be able to answer:
+Website:
 
-```text
-What is the target?
-What data is available at prediction time?
-What features leak future information?
-What metric matters?
-What errors are expensive?
-What baseline should this beat?
-```
-
-***
-
-# Phase 2 — Classical Machine Learning
-
-### Goal
-
-Become strong at practical ML on real-world structured data.
-
-For most ML engineering jobs, classical ML is still extremely important.
-
-### Learn
-
-* linear regression
-* logistic regression
-* decision trees
-* random forests
-* gradient boosting
-* XGBoost / LightGBM / CatBoost
-* k-means
-* PCA
-* model calibration
-* imbalanced classification
-* cross-validation
-* hyperparameter tuning
-* model interpretability
-
-### Resources
-
-* Hands-On Machine Learning — Aurélien Géron
-* The Hundred-Page Machine Learning Book
-* CS229 selected lectures
-* scikit-learn documentation
-* Interpretable Machine Learning — Christoph Molnar
-
-### Build
-
-Build a **complete tabular ML pipeline**:
-
-* data loading
-* cleaning
-* feature engineering
-* train/val/test split
-* baseline model
-* logistic regression / random forest / XGBoost
-* hyperparameter tuning
-* calibration
-* SHAP or permutation importance
-* error analysis
-* model card
-* batch inference script
-
-### Must-master concepts
-
-* precision, recall, F1
-* ROC-AUC
-* PR-AUC
-* calibration
-* confusion matrix
-* regression metrics
-* data leakage
-* overfitting
-* bias-variance
-* train-serving skew
-
-This phase is non-negotiable for ML engineering.
-
-***
-
-# Phase 3 — ML Pipelines and MLOps Basics
-
-### Goal
-
-Move from notebooks to production-grade ML.
-
-### Learn
-
-* reproducible training
-* config-driven experiments
-* data versioning
-* model registry
-* experiment tracking
-* feature stores, conceptually
-* batch inference
-* online inference
-* model serving
-* monitoring
-* drift detection
-* retraining triggers
-
-### Tools
-
-Pick a small practical stack:
-
-```text
-Python
-scikit-learn
-XGBoost/LightGBM
-MLflow
-FastAPI
-Docker
-Postgres
-Great Expectations or Pandera
-Evidently AI
-Airflow or Prefect
-```
-
-### Build
-
-Convert your previous ML model into a production-style service:
-
-* training pipeline
-* validation pipeline
-* model registry
-* FastAPI prediction endpoint
-* batch prediction job
-* monitoring dashboard
-* drift report
-* retraining script
-
-### Architecture
-
-```text
-Raw Data
-   |
-Data Validation
-   |
-Feature Engineering
-   |
-Training Pipeline
-   |
-Model Registry
-   |
-Batch/Online Inference
-   |
-Monitoring
-   |
-Retraining
-```
-
-This phase makes you look like a real ML engineer, not just a notebook user.
-
-***
-
-# Phase 4 — Deep Learning Fundamentals
-
-### Goal
-
-Understand neural networks enough to build, debug, and fine-tune models.
-
-You do **not** need to become a deep learning researcher. But you should understand the fundamentals.
-
-### Learn
-
-* tensors
-* PyTorch
-* autograd
-* MLPs
-* CNN basics
-* RNN/LSTM conceptually
-* transformers conceptually
-* loss functions
-* optimizers
-* regularization
-* learning rate schedules
-* overfitting/debugging
-* GPU basics
-
-### Resources
-
-* Dive into Deep Learning
-* PyTorch tutorials
-* CS231n selected lectures
-* Understanding Deep Learning — selected chapters
-* Deep Learning Tuning Playbook
-
-### Build
-
-Build:
-
-1. image classifier with PyTorch
-2. text classifier with transformer embeddings
-3. training loop with:
-   * checkpoints
-   * metrics
-   * early stopping
-   * TensorBoard/W\&B-style logs
-   * error analysis
-
-### Skip initially
-
-* deriving every backprop equation
-* GANs
-* diffusion
-* RL
-* custom CUDA
-* large-scale distributed training
-
-***
-
-# Phase 5 — NLP and LLM Engineering
-
-### Goal
-
-Use language models effectively in practical systems.
-
-### Learn
-
-* tokenization
-* embeddings
-* attention intuition
-* transformer basics
-* prompting
-* structured outputs
-* function calling
-* context windows
-* hallucinations
-* model selection
-* open-source vs API models
-* fine-tuning basics
-* LoRA conceptually
-
-### Resources
-
-* CS224N selected lectures
-* Build a Large Language Model from Scratch — selected chapters
-* Natural Language Processing with Transformers — selected chapters
-* OpenAI / Anthropic / Azure AI docs
-* Simon Willison’s LLM writing
-* Chip Huyen’s AI engineering writing
-
-### Build
-
-Build an **LLM application platform**:
-
-* prompt templates
-* structured output validation
-* retries
-* fallback model
-* streaming
-* token/cost logging
-* latency logging
-* prompt versioning
-* eval cases
-
-Example tasks:
-
-* resume parser
-* meeting summarizer
-* ticket classifier
-* log analysis assistant
-* document extraction system
-
-***
-
-# Phase 6 — RAG and Search Systems
-
-### Goal
-
-Build AI systems over private/domain knowledge.
-
-This is one of the highest ROI areas for both ML engineers and AI engineers.
-
-### Learn
-
-* text extraction
-* chunking
-* embeddings
-* vector databases
-* BM25
-* hybrid search
-* metadata filters
-* reranking
-* query rewriting
-* citation grounding
-* answer faithfulness
-* retrieval evaluation
-
-### Resources
-
-* Introduction to Information Retrieval — selected chapters
-* LlamaIndex docs
-* LangChain docs
-* Qdrant / Weaviate / Pinecone docs
-* Elasticsearch/OpenSearch basics
-
-### Build
-
-Build a **serious RAG system**:
-
-* PDF/doc ingestion
-* chunking
-* metadata extraction
-* embeddings
-* vector search
-* BM25 search
-* hybrid retrieval
-* reranking
-* citation-based answer generation
-* feedback collection
-* RAG eval set
+https://d2l.ai
 
-Good personal project for you:
+Read only:
 
-> **Engineering Knowledge Assistant** over Linux kernel, database internals, system design, and code notes.
+Preliminaries
+Linear Neural Networks
+MLPs
+Deep Learning Computation
+Modern CNNs (skim)
+RNNs (overview only)
+Attention
 
-Features:
+Time:
 
-* ask questions
-* source-grounded answers
-* citations
-* retrieved chunk viewer
-* diagrams/flashcards
-* interview question generator
-* hallucination checks
-* eval dashboard
-
-This aligns perfectly with your OS/database learning style.
+2 weeks
 
-***
+Resource 2
+Sebastian Raschka
 
-# Phase 7 — Agents and Workflows
+Build a Large Language Model From Scratch
 
-### Goal
-
-Build useful tool-using AI systems.
-
-Do not start with fully autonomous agents. Start with controlled workflows.
-
-### Learn
-
-* tool calling
-* function schemas
-* planner/executor pattern
-* state machines
-* memory
-* human approval
-* max-step limits
-* trace debugging
-* tool error handling
-* workflow orchestration
-
-### Tools
+Read:
 
-* LangGraph
-* Semantic Kernel
-* LlamaIndex Workflows
-* AutoGen, later
-* DSPy, later
-
-### Build
-
-Build a **controlled agent system**:
-
-Examples:
+Entire book
 
-1. research assistant
-2. codebase assistant
-3. incident analysis assistant
-4. data analysis assistant
-5. ML experiment assistant
+Time:
 
-Minimum features:
+2 weeks
 
-* planner
-* search/retrieval tool
-* Python execution tool
-* file reader
-* structured trace
-* human approval step
-* max-step guardrail
-* evaluation set
+Do not obsess over exercises.
 
-### Important mindset
+This book acts as:
 
-Production agents are usually not:
+Bridge
+between
+CS229
+and
+CS336
 
-```text
-LLM thinks forever, does random actions, somehow solves task
-```
+Phase 4: LLM Internals and Systems (3 Months)
+Primary Resource
+Stanford CS336
 
-They are usually:
+This becomes your centerpiece.
 
-```text
-LLM + deterministic workflow + tools + retrieval + validation + evals
-```
+Use:
 
-***
+Lectures
+Notes
+Reading material
 
-# Phase 8 — Evaluation, Monitoring, and Experimentation
+Time:
 
-### Goal
+12 weeks
 
-Become reliable. This is where strong ML engineers separate themselves.
+Ignore almost every other LLM course.
 
-### Learn
+Secondary Resource
+Stanford CME 295
 
-For classical ML:
+Use only for revision.
 
-* offline metrics
-* calibration
-* slice-based evaluation
-* drift
-* data quality checks
-* A/B testing
-* model monitoring
+Watch:
 
-For LLM systems:
+Lecture 1–4 before CS336
+Lecture 5–6 during CS336
+Lecture 7 before agents
+Lecture 8 before evaluation
 
-* golden test sets
-* prompt regression tests
-* retrieval recall
-* answer faithfulness
-* LLM-as-judge
-* human review
-* hallucination rate
-* cost/latency tracking
+Time:
 
-### Tools
+10–12 hours total
 
-* MLflow
-* Evidently AI
-* WhyLabs
-* Arize Phoenix
-* LangSmith
-* Promptfoo
-* Ragas
-* DeepEval
-* pytest
+Not a full course.
 
-### Build
+Phase 5: Information Retrieval (2 Months)
+Primary Resource
+Introduction to Information Retrieval
 
-Create a unified **ML/AI evaluation dashboard**:
+(Manning, Raghavan, Schütze)
 
-For ML models:
+Read:
 
-* accuracy/F1/AUC/RMSE
-* calibration
-* feature drift
-* prediction drift
-* data quality issues
+Chapters 1–8
+Chapters 12–14
 
-For LLM/RAG systems:
+Skip:
 
-* retrieval precision/recall
-* answer faithfulness
-* citation correctness
-* hallucination rate
-* latency
-* cost
-* judge score
-* human feedback
+Most advanced IR theory
 
-This is extremely portfolio-worthy.
+Time:
 
-***
+4 weeks
 
-# 12-Month Balanced Roadmap
+Dense Retrieval Resource
+Full Stack Retrieval
 
-## Months 1–2: Data + Classical ML
+https://fullstackretrieval.com
 
-Focus:
+Read:
 
-* pandas
-* SQL
-* scikit-learn
-* EDA
-* feature engineering
-* classical ML
-
-Build:
-
-> End-to-end tabular ML project with model card and error analysis.
-
-***
-
-## Months 3–4: ML Pipelines + MLOps
-
-Focus:
-
-* MLflow
-* data validation
-* training pipeline
-* FastAPI serving
-* batch inference
-* monitoring basics
-
-Build:
-
-> Productionized ML prediction service.
-
-***
-
-## Months 5–6: Deep Learning + NLP Basics
-
-Focus:
-
-* PyTorch
-* neural network training
-* transformer intuition
-* embeddings
-* text classification
-
-Build:
-
-> PyTorch training pipeline + transformer-based text classifier.
-
-***
-
-## Months 7–8: LLM Apps + RAG
-
-Focus:
-
-* LLM APIs
-* prompt engineering
-* structured outputs
-* embeddings
-* vector DB
-* hybrid search
-* reranking
-
-Build:
-
-> RAG system over technical notes/docs with citations and feedback.
-
-***
-
-## Months 9–10: Agents + AI Workflows
-
-Focus:
-
-* tool calling
-* LangGraph/Semantic Kernel
-* planner-executor
-* trace viewer
-* human-in-the-loop
-
-Build:
-
-> Research/codebase/data-analysis agent with controlled tools and evals.
-
-***
-
-## Months 11–12: Capstone + Production
-
-Build one complete system:
-
-> **ML + AI Engineering Platform**
-
-It should include:
-
-* tabular ML model
-* training pipeline
-* model registry
-* API serving
-* RAG assistant
-* agent workflow
-* eval harness
-* monitoring dashboard
-* Docker deployment
-* documentation
-* architecture diagram
-* demo video
-
-This gives you proof across both ML engineering and AI engineering.
-
-***
-
-# Best Capstone Idea for You
-
-Given your background, I’d suggest:
-
-## **Engineering Intelligence Platform**
-
-A system with two parts:
-
-### Part A — ML Forecasting/Prediction Module
-
-Use your Tmax/weather forecasting interest.
-
-Features:
-
-* ingest weather data
-* classify cities as coastal/non-coastal
-* train baseline models
-* train gradient boosting model
-* evaluate RMSE/MAE
-* compare coastal vs non-coastal performance
-* monitor drift
-* expose prediction API
-
-### Part B — AI Knowledge Assistant
-
-Use your OS/database/system notes.
-
-Features:
-
-* ingest PDFs/Markdown/code
-* RAG over knowledge base
-* source-grounded Q\&A
-* concept comparison
-* flashcards
-* interview questions
-* code explanation
-* trace viewer
-* eval dashboard
-
-### Why this is strong
-
-It proves you can do:
-
-```text
-Classical ML
-Feature engineering
-Evaluation
-Backend APIs
-MLOps
+Dense retrieval
+Ranking
+Hybrid retrieval
 RAG
-LLM engineering
-Agents
-Monitoring
-Product thinking
-```
 
-That is much better than only saying:
+Time:
 
-> “I built an AI agent.”
+2 weeks
 
-***
+Modern Retrieval Papers
 
-# Minimal Resource List
+Read:
 
-If you want a compact list, use this:
+Must Read
+DPR
+Sentence-BERT
+ColBERT
 
-## ML Engineering
+Time:
 
-1. **Hands-On Machine Learning** — Aurélien Géron
-2. **Designing Machine Learning Systems** — Chip Huyen
-3. **Designing Data-Intensive Applications** — Martin Kleppmann
-4. **The Hundred-Page Machine Learning Book** — Andriy Burkov
-5. **scikit-learn docs**
-6. **MLflow docs**
-7. **Evidently AI docs**
+2 weeks
 
-## Deep Learning / NLP
+Phase 6: Agent Systems (2 Months)
 
-8. **Dive into Deep Learning**
-9. **PyTorch tutorials**
-10. **CS224N selected lectures**
-11. **Build a Large Language Model from Scratch**, selected chapters
+Avoid reading 50 papers.
 
-## AI Engineering
+Only read these deeply.
 
-12. **OpenAI/Anthropic/Azure AI docs**
-13. **LlamaIndex docs**
-14. **LangGraph docs**
-15. **Introduction to Information Retrieval**, selected chapters
-16. **Simon Willison and Chip Huyen AI engineering blogs**
+Tool Use
+ReAct
+Toolformer
+MRKL
+WebGPT
+Planning
+Plan-and-Solve
+Tree of Thoughts
+LLM Compiler
+Memory
+MemGPT
+Generative Agents
+Reflection
+Reflexion
+Self-Refine
 
-***
+Total:
 
-# What to Learn Deeply vs Lightly
+10 papers
 
-## Learn deeply
+Time:
 
-* Python for ML
-* SQL
-* pandas
-* scikit-learn
-* feature engineering
-* model evaluation
-* XGBoost/LightGBM
-* FastAPI
-* MLflow
-* Docker
-* RAG
-* LLM structured outputs
-* evaluation
-* monitoring
+6 weeks
 
-## Learn moderately
+Agent Engineering
+Anthropic Agent Engineering Guide
+OpenAI Agent Guides
+LangGraph Documentation
 
-* PyTorch
-* transformers
-* embeddings
-* vector search
-* model serving
-* cloud deployment
-* LangGraph/Semantic Kernel
+Time:
 
-## Learn lightly at first
+2 weeks
 
-* backprop derivations
-* RL
-* RLHF
-* DPO
-* scaling laws
-* CUDA
-* distributed training
-* transformer architecture papers
-* multimodal research
-* diffusion models
+Phase 7: Frameworks (1 Month)
+LangGraph
+Primary Focus
 
-***
+Read:
 
-# Final Reframe
+Entire official documentation.
 
-Your goal should not be:
+Time:
 
-> “Become an AI researcher.”
+2 weeks
 
-And not only:
+LangChain
 
-> “Become an LLM app developer.”
+Read only:
 
-Your goal should be:
+Models
+Messages
+Tools
+Retrievers
+Structured outputs
 
-> **Become an ML/AI engineer who can build predictive ML systems, LLM-powered products, RAG systems, agents, and production ML infrastructure.**
+Time:
 
-So the priority order becomes:
+1 week
 
-1. **Software + data foundations**
-2. **Classical ML**
-3. **ML pipelines and deployment**
-4. **Deep learning basics**
-5. **LLM apps**
-6. **RAG**
-7. **Agents**
-8. **Evaluation and monitoring**
-9. **Production capstone**
+DSPy
 
-That is the right balance.
+Read:
+
+Official tutorials
+
+Time:
+
+1 week
+
+Phase 8: Evaluation (1 Month)
+
+Most important phase after CS336.
+
+Primary Resource
+Hamel Husain's LLM Evaluation Guide
+
+Read fully.
+
+Secondary Resource
+LangSmith Evaluation Documentation
+
+Read selectively.
+
+Optional
+MLflow Evaluation Documentation
+
+Time:
+
+4 weeks
+
+Phase 9: Serving and Production AI (2 Months)
+FastAPI
+
+Resource:
+
+Official documentation
+
+Time:
+
+1 week
+
+vLLM
+
+Read:
+
+Official docs
+
+Time:
+
+2 weeks
+
+Ray Serve
+
+Read:
+
+Official docs
+
+Time:
+
+1 week
+
+Kubernetes
+
+Resource:
+
+Kubernetes Basics
+
+Only:
+
+Pods
+Deployments
+Services
+Ingress
+Autoscaling
+
+Time:
+
+2 weeks
+
+Observability
+
+Read:
+
+OpenTelemetry docs
+MLflow tracking concepts
+
+Time:
+
+2 weeks
+
+Distributed Systems (Parallel Track)
+
+Since you're already studying Linux/OS deeply, this is where you'll gain a huge advantage.
+
+Primary Resource
+Designing Data-Intensive Applications
+
+(Martin Kleppmann)
+
+Read cover-to-cover.
+
+Time:
+
+3 months parallel to CS336
+
+This is probably the highest ROI non-AI book for a Senior AI Engineer.
+
+Final Resource List (Only 8 Core Resources)
+
+If I had to reduce everything to the minimum:
+
+Gilbert Strang — Introduction to Linear Algebra
+Harvard Stat 110
+Stanford CS229
+Dive Into Deep Learning (selected chapters)
+Build a Large Language Model From Scratch (Raschka)
+Stanford CS336
+Introduction to Information Retrieval
+Designing Data-Intensive Applications
+
+Everything else (CME 295, agent papers, LangGraph, vLLM, LangSmith, DSPy, Ray, Kubernetes) is supplementary and should be consumed only when you reach that phase.
+
+If you asked me what produces the highest return for your next 12–15 months, I'd rank them:
+
+1. CS336
+2. Designing Data-Intensive Applications
+3. Introduction to Information Retrieval
+4. CS229
+5. Strang
+6. Stat 110
+7. Raschka
+8. D2L
+
+
+That's enough to reach a very strong Senior AI Systems Engineer foundation without drowning in courses, books, and papers.
